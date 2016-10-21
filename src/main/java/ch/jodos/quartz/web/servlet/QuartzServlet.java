@@ -42,7 +42,7 @@ public class QuartzServlet extends HttpServlet {
         try {
             for (int i = 0; i < 1000; i++) {
                 JobDetail job = newJob(SimpleJob.class).withIdentity("job_" + i, "group").requestRecovery(true).build();
-                Trigger trigger = newTrigger().withIdentity("trigger_" + i, "group").startNow().withSchedule(simpleSchedule().withIntervalInSeconds(5).repeatForever()).build();
+                Trigger trigger = newTrigger().withIdentity("trigger_" + i, "group").startNow().withSchedule(simpleSchedule().withIntervalInMilliseconds(100L).repeatForever()).build();
                 quartzScheduler.scheduleJob(job, trigger);
             }
         } catch (SchedulerException ex) {
