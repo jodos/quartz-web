@@ -8,10 +8,11 @@ import org.quartz.JobExecutionException;
 
 public class SimpleJob implements Job {
 
+    @Override
     public void execute(JobExecutionContext jec) throws JobExecutionException {
         List v = new ArrayList();
-        for (int i = 0; i <= 5000; i++) {
-            byte b[] = new byte[1004857600];
+        for (int i = 0; i <= 5; i++) {
+            byte b[] = new byte[12];
             v.add(b);
         }
     }
